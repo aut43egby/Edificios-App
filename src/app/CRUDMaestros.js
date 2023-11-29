@@ -1,106 +1,97 @@
 import { deleteDoc, doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
 import { db } from "./firebase.js";
 
-const SmartphonesContainer = document.querySelector('.Smartphones');
-const FormularioActualizarSmartphone = document.querySelector('#Formulario-ActualizarSmartphone');
+const EdificiosContainer = document.querySelector('.Edificios');
+const FormularioActualizarEdificio = document.querySelector('#Formulario-ActualizarEdificio');
 
-const obtenerSmartphone = (id) => getDoc(doc(db, 'Smartphones', id));
+const obtenerEdificio = (id) => getDoc(doc(db, 'Edificios', id));
 
 let id = '';
 
-// Nueva función para actualizar smartphone
-const actualizarSmartphone = async (id, nuevosValores) => {
+const actualizarEdificio = async (id, nuevosValores) => {
     try {
-        await updateDoc(doc(db, 'Smartphones', id), nuevosValores);
-        alert('Smartphone actualizado correctamente');
+        await updateDoc(doc(db, 'Edificios', id), nuevosValores);
+        alert('Edificio actualizado correctamente');
     } catch (error) {
-        alert('Error al actualizar el smartphone', 'error');
+        alert('Error al actualizar el edificio', 'error');
     }
 };
 
-export const MostrarListaSmartphones = (Datos) => {
+export const MostrarListaEdificios = (Datos) => {
     if (Datos.length) {
         let html = '';
         Datos.forEach(documento => {
-            const Smartphone = documento.data();
-            const idDocumento = documento.id; // Obtén el identificador del documento
+            const Edificio = documento.data();
+            const idDocumento = documento.id;
             const li = `
                 <li class="list-group-item list-group-item-action">
-                    <h5> Nombre del smartphone: ${Smartphone.Nombre} </h5>
-                    <p> Fabricante: ${Smartphone.Fabricante} </p>
-                    <p> Precio: ${Smartphone.Precio} </p>
-                    <p> Fecha de Lanzamiento: ${Smartphone.FechaLanzamiento} </p>
-                    <p> Características Técnicas: ${Smartphone.CaracteristicasTecnicas} </p>
-                    <button class="btn btn-outline-warning w-100 mb-2 botoneSinSesion Eliminar-Smartphone" data-id="${idDocumento}"> Eliminar </button>
-                    <button class="btn btn-outline-success w-100 mb-2 botoneSinSesion Actualizar-Smartphone" data-id="${idDocumento}" data-bs-toggle="modal" data-bs-target="#ActualizarSmartphone"> Actualizar </button>
+                    <h5> Nombre del edificio: ${Edificio.Nombre} </h5>
+                    <p> Ubicación: ${Edificio.Ubicacion} </p>
+                    <p> Fecha de Construcción: ${Edificio.FechaConstruccion} </p>
+                    <p> Número de Pisos: ${Edificio.NumeroPisos} </p>
+                    <p> Propósito/Función: ${Edificio.Proposito} </p>
+                    <button class="btn btn-outline-warning w-100 mb-2 botoneSinSesion Eliminar-Edificio" data-id="${idDocumento}"> Eliminar </button>
+                    <button class="btn btn-outline-success w-100 mb-2 botoneSinSesion Actualizar-Edificio" data-id="${idDocumento}" data-bs-toggle="modal" data-bs-target="#ActualizarEdificio"> Actualizar </button>
                 </li>
             `;
             html += li;
         });
-        SmartphonesContainer.innerHTML = html;
+        EdificiosContainer.innerHTML = html;
 
-        const BotonesEliminar = SmartphonesContainer.querySelectorAll('.Eliminar-Smartphone');
+        const BotonesEliminar = EdificiosContainer.querySelectorAll('.Eliminar-Edificio');
 
-        // ELIMINAR SMARTPHONES
         BotonesEliminar.forEach(BotonEliminarIndividual => {
             BotonEliminarIndividual.addEventListener('click', async (event) => {
                 const Documento = event.target.dataset.id;
                 try {
-                    await deleteDoc(doc(db, 'Smartphones', Documento));
-                    // Puedes agregar aquí algún código adicional después de eliminar el documento, si es necesario
+                    await deleteDoc(doc(db, 'Edificios', Documento));
                 } catch (error) {
-                    alert('Error al eliminar el smartphone:', 'error');
+                    alert('Error al eliminar el edificio:', 'error');
                 }
             });
         });
 
-        const BotonesActualizar = SmartphonesContainer.querySelectorAll('.Actualizar-Smartphone');
+        const BotonesActualizar = EdificiosContainer.querySelectorAll('.Actualizar-Edificio');
 
         BotonesActualizar.forEach(BotonActualizarIndividual => {
             BotonActualizarIndividual.addEventListener('click', async (e) => {
-                const identificadorDocumento = await obtenerSmartphone(e.target.dataset.id);
-
-                // Accede a los datos del documento utilizando el método data()
+                const identificadorDocumento = await obtenerEdificio(e.target.dataset.id);
                 const DATOSDOCUMENTO = identificadorDocumento.data();
 
-                // Ahora puedes acceder a las propiedades del documento
-                const NOMBRE = FormularioActualizarSmartphone['Actualizar-Nombre'];
-                const FABRICANTE = FormularioActualizarSmartphone['Actualizar-Fabricante'];
-                const PRECIO = FormularioActualizarSmartphone['Actualizar-Precio'];
-                const FECHA_LANZAMIENTO = FormularioActualizarSmartphone['Actualizar-FechaLanzamiento'];
-                const CARACTERISTICAS_TECNICAS = FormularioActualizarSmartphone['Actualizar-CaracteristicasTecnicas'];
+                const NOMBRE = FormularioActualizarEdificio['Actualizar-Nombre'];
+                const UBICACION = FormularioActualizarEdificio['Actualizar-Ubicacion'];
+                const FECHA_CONSTRUCCION = FormularioActualizarEdificio['Actualizar-FechaConstruccion'];
+                const NUMERO_PISOS = FormularioActualizarEdificio['Actualizar-NumeroPisos'];
+                const PROPOSITO = FormularioActualizarEdificio['Actualizar-Proposito'];
 
                 NOMBRE.value = DATOSDOCUMENTO.Nombre;
-                FABRICANTE.value = DATOSDOCUMENTO.Fabricante;
-                PRECIO.value = DATOSDOCUMENTO.Precio;
-                FECHA_LANZAMIENTO.value = DATOSDOCUMENTO.FechaLanzamiento;
-                CARACTERISTICAS_TECNICAS.value = DATOSDOCUMENTO.CaracteristicasTecnicas;
+                UBICACION.value = DATOSDOCUMENTO.Ubicacion;
+                FECHA_CONSTRUCCION.value = DATOSDOCUMENTO.FechaConstruccion;
+                NUMERO_PISOS.value = DATOSDOCUMENTO.NumeroPisos;
+                PROPOSITO.value = DATOSDOCUMENTO.Proposito;
 
                 id = identificadorDocumento.id;
             });
         });
 
-        // Evento para actualizar el smartphone al enviar el formulario
-        FormularioActualizarSmartphone.addEventListener('submit', async (e) => {
+        FormularioActualizarEdificio.addEventListener('submit', async (e) => {
             e.preventDefault();
             try {
-                // Validar campos aquí si es necesario
-                const NOMBRE = FormularioActualizarSmartphone['Actualizar-Nombre'].value;
-                const FABRICANTE = FormularioActualizarSmartphone['Actualizar-Fabricante'].value;
-                const PRECIO = FormularioActualizarSmartphone['Actualizar-Precio'].value;
-                const FECHA_LANZAMIENTO = FormularioActualizarSmartphone['Actualizar-FechaLanzamiento'].value;
-                const CARACTERISTICAS_TECNICAS = FormularioActualizarSmartphone['Actualizar-CaracteristicasTecnicas'].value;
+                const NOMBRE = FormularioActualizarEdificio['Actualizar-Nombre'].value;
+                const UBICACION = FormularioActualizarEdificio['Actualizar-Ubicacion'].value;
+                const FECHA_CONSTRUCCION = FormularioActualizarEdificio['Actualizar-FechaConstruccion'].value;
+                const NUMERO_PISOS = FormularioActualizarEdificio['Actualizar-NumeroPisos'].value;
+                const PROPOSITO = FormularioActualizarEdificio['Actualizar-Proposito'].value;
 
-                await actualizarSmartphone(id, {
+                await actualizarEdificio(id, {
                     Nombre: NOMBRE,
-                    Fabricante: FABRICANTE,
-                    Precio: PRECIO,
-                    FechaLanzamiento: FECHA_LANZAMIENTO,
-                    CaracteristicasTecnicas: CARACTERISTICAS_TECNICAS,
+                    Ubicacion: UBICACION,
+                    FechaConstruccion: FECHA_CONSTRUCCION,
+                    NumeroPisos: NUMERO_PISOS,
+                    Proposito: PROPOSITO,
                 });
 
-                // Cerrar el modal (si es un modal)
-                const actualizarModal = document.querySelector('#ActualizarSmartphone');
+                const actualizarModal = document.querySelector('#ActualizarEdificio');
                 const modal = bootstrap.Modal.getInstance(actualizarModal);
                 modal.hide();
             } catch (error) {
@@ -109,9 +100,9 @@ export const MostrarListaSmartphones = (Datos) => {
         });
 
     } else if (Datos.length === 0) {
-        SmartphonesContainer.innerHTML = `
+        EdificiosContainer.innerHTML = `
             <h1>
-                No hay smartphones registrados.
+                No hay edificios registrados.
             </h1>
         `;
     }

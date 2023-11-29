@@ -9,7 +9,7 @@
     <!-- Enlaza al archivo de estilos de Toastify -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="style.css">
-    <script type="module" src="./main.js"></script>
+    <script type="module" src="./mainEdificio.js"></script>
     <title>Edificios UTN</title>
 </head>
 
@@ -41,13 +41,11 @@
                                 data-bs-target="#Registrarse">REGISTRARSE</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link botonesConSesion" id="Mostrar-Edificios" href="SubirEdificio.html">SUBIR
-                                UN
+                            <a class="nav-link botonesConSesion" id="Mostrar-Edificios" href="SubirEdificio.html">SUBIR UN
                                 EDIFICIO</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link botonesConSesion" id="Mostrar-Edificios" href="index.html">VER
-                                EDIFICIOS</a>
+                            <a class="nav-link botonesConSesion" id="Mostrar-Edificios" href="index.html">VER EDIFICIOS</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link botonesConSesion" id="CerrarSesion">CERRAR SESIÓN</a>
@@ -59,6 +57,38 @@
     </nav>
 
     <!-- Contenido del cuerpo aquí -->
+
+    <!-- Formulario de Edificio -->
+    <div class="container p-4 mt-5">
+        <div class="row">
+            <form id="Formulario-Edificio" class="col-md-6 mx-auto">
+                <div class="mb-3">
+                    <label for="Nombre-Edificio" class="form-label">Nombre del Edificio:</label>
+                    <input type="text" class="form-control" id="Nombre-Edificio" placeholder="Nombre del Edificio">
+                </div>
+                <div class="mb-3">
+                    <label for="Ubicacion-Edificio" class="form-label">Ubicación:</label>
+                    <input type="text" class="form-control" id="Ubicacion-Edificio"
+                        placeholder="Ubicación del Edificio">
+                </div>
+                <div class="mb-3">
+                    <label for="FechaConstruccion-Edificio" class="form-label">Fecha de Construcción:</label>
+                    <input type="date" class="form-control" id="FechaConstruccion-Edificio">
+                </div>
+                <div class="mb-3">
+                    <label for="NumeroPisos-Edificio" class="form-label">Número de Pisos:</label>
+                    <input type="number" class="form-control" id="NumeroPisos-Edificio"
+                        placeholder="Número de Pisos del Edificio">
+                </div>
+                <div class="mb-3">
+                    <label for="Proposito-Edificio" class="form-label">Propósito/Función:</label>
+                    <textarea class="form-control" id="Proposito-Edificio"
+                        placeholder="Propósito o Función del Edificio"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" id="Guardar-Edificio">Guardar Edificio</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Lista de Edificios -->
     <div class="container p-4 mt-5">
@@ -81,37 +111,37 @@
                 <div class="modal-body">
                     <form id="Formulario-ActualizarEdificio">
                         <div class="mb-3">
-                            <label for="Actualizar-Nombre">Nombre del Edificio</label>
-                            <input type="text" id="Actualizar-Nombre" class="form-control mb-3"
-                                placeholder="Ingresa el nuevo nombre">
+                            <label for="Actualizar-Nombre-Edificio" class="form-label">Nuevo Nombre del Edificio:</label>
+                            <input type="text" class="form-control" id="Actualizar-Nombre-Edificio"
+                                placeholder="Nuevo Nombre del Edificio">
                         </div>
                         <div class="mb-3">
-                            <label for="Actualizar-Ubicacion">Ubicación</label>
-                            <input type="text" id="Actualizar-Ubicacion" class="form-control mb-3"
-                                placeholder="Ingresa la nueva ubicación">
+                            <label for="Actualizar-Ubicacion-Edificio" class="form-label">Nueva Ubicación:</label>
+                            <input type="text" class="form-control" id="Actualizar-Ubicacion-Edificio"
+                                placeholder="Nueva Ubicación del Edificio">
                         </div>
                         <div class="mb-3">
-                            <label for="Actualizar-FechaConstruccion">Fecha de Construcción</label>
-                            <input type="date" id="Actualizar-FechaConstruccion" class="form-control mb-3">
+                            <label for="Actualizar-FechaConstruccion-Edificio" class="form-label">Nueva Fecha de Construcción:</label>
+                            <input type="date" class="form-control" id="Actualizar-FechaConstruccion-Edificio">
                         </div>
                         <div class="mb-3">
-                            <label for="Actualizar-NumeroPisos">Número de Pisos</label>
-                            <input type="number" id="Actualizar-NumeroPisos" class="form-control mb-3"
-                                placeholder="Ingresa el nuevo número de pisos">
+                            <label for="Actualizar-NumeroPisos-Edificio" class="form-label">Nuevo Número de Pisos:</label>
+                            <input type="number" class="form-control" id="Actualizar-NumeroPisos-Edificio"
+                                placeholder="Nuevo Número de Pisos del Edificio">
                         </div>
                         <div class="mb-3">
-                            <label for="Actualizar-Proposito">Propósito/Función</label>
-                            <textarea id="Actualizar-Proposito" class="form-control mb-3"
-                                placeholder="Ingresa el nuevo propósito o función"></textarea>
+                            <label for="Actualizar-Proposito-Edificio" class="form-label">Nuevo Propósito/Función:</label>
+                            <textarea class="form-control" id="Actualizar-Proposito-Edificio"
+                                placeholder="Nuevo Propósito o Función del Edificio"></textarea>
                         </div>
-                        <button class="btn btn-primary w-100 mb-2 edit Boton-ActualizarEdificio">Actualizar</button>
+                        <button type="submit" class="btn btn-warning" id="Actualizar-Edificio">Actualizar Edificio</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- MODAL DE INICIO DE SESION -->
+    <!-- MODAL DE INICIO DE SESIÓN -->
     <div class="modal fade" id="InicioSesion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content bg-dark">
@@ -121,18 +151,13 @@
                 </div>
                 <div class="modal-body">
                     <form id="Formulario-InicioSesion">
-                        <label for="InicioSesion-Email">Correo:</label>
-                        <input type="text" id="InicioSesion-Email" class="form-control mb-3"
-                            placeholder="Ingresa tu correo" required>
-                        <label for="InicioSesion-Password">Contraseña:</label>
-                        <input type="password" id="InicioSesion-Password" class="form-control mb-3"
-                            placeholder="Ingresa tu contraseña" required>
+                        <!-- Agrega aquí los campos para iniciar sesión -->
                         <button type="submit" class="btn btn-outline-light w-100 mb-2">INICIAR SESIÓN</button>
                     </form>
                     <button type="submit" id="Google-Auth" class="btn btn-outline-warning w-100 mb-2">INICIAR SESIÓN CON
                         GOOGLE</button>
                     <button type="submit" id="Facebook-Auth" class="btn btn-outline-info w-100 mb-2">INICIAR SESIÓN CON
-                        GITHUB</button>
+                        FACEBOOK</button>
                 </div>
             </div>
         </div>
@@ -148,12 +173,7 @@
                 </div>
                 <div class="modal-body">
                     <form id="Formulario-Registro">
-                        <label for="Registrarse-Email">Correo:</label>
-                        <input type="text" id="Registrarse-Email" class="form-control mb-3"
-                            placeholder="Ingresa tu correo" required>
-                        <label for="Registrarse-Password">Contraseña:</label>
-                        <input type="password" id="Registrarse-Password" class="form-control mb-3"
-                            placeholder="Ingresa tu contraseña" required>
+                        <!-- Agrega aquí los campos para registrarse -->
                         <button type="submit" class="btn btn-outline-light w-100 mb-4">REGISTRARSE</button>
                     </form>
                 </div>

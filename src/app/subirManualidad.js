@@ -2,35 +2,35 @@ import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.6.0/fi
 import { db } from "./firebase.js";
 
 window.addEventListener('DOMContentLoaded', () => {
-    const formularioSmartphone = document.querySelector('#Formulario-Smartphone');
+    const formularioEdificio = document.querySelector('#Formulario-Edificio');
 
-    formularioSmartphone.addEventListener('submit', async (e) => {
+    formularioEdificio.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const NOMBRE = formularioSmartphone['Nombre-Smartphone'].value;
-        const FABRICANTE = formularioSmartphone['Fabricante-Smartphone'].value;
-        const PRECIO = parseFloat(formularioSmartphone['Precio-Smartphone'].value);
-        const FECHA_LANZAMIENTO = formularioSmartphone['Fecha-Lanzamiento-Smartphone'].value;
-        const CARACTERISTICAS_TECNICAS = formularioSmartphone['CaracteristicasTecnicas-Smartphone'].value;
+        const NOMBRE = formularioEdificio['Nombre-Edificio'].value;
+        const UBICACION = formularioEdificio['Ubicacion-Edificio'].value;
+        const FECHA_CONSTRUCCION = formularioEdificio['FechaConstruccion-Edificio'].value;
+        const NUMERO_PISOS = parseInt(formularioEdificio['NumeroPisos-Edificio'].value);
+        const PROPOSITO = formularioEdificio['Proposito-Edificio'].value;
 
         try {
             // Utiliza addDoc para agregar un documento con un identificador generado automáticamente
-            const nuevoSmartphoneRef = await addDoc(collection(db, 'Smartphones'), {
+            const nuevoEdificioRef = await addDoc(collection(db, 'Edificios'), {
                 Nombre: NOMBRE,
-                Fabricante: FABRICANTE,
-                Precio: PRECIO,
-                FechaLanzamiento: FECHA_LANZAMIENTO,
-                CaracteristicasTecnicas: CARACTERISTICAS_TECNICAS
+                Ubicacion: UBICACION,
+                FechaConstruccion: FECHA_CONSTRUCCION,
+                NumeroPisos: NUMERO_PISOS,
+                Proposito: PROPOSITO
             });
 
             // Muestra un mensaje si todo sale bien
-            alert(`El smartphone ${NOMBRE} ha sido registrado exitosamente`);
+            alert(`El edificio ${NOMBRE} ha sido registrado exitosamente`);
 
             // Limpia el formulario
-            formularioSmartphone.reset();
+            formularioEdificio.reset();
         } catch (error) {
             // Maneja el error y muestra un mensaje con el error
-            alert('Error al registrar el smartphone:', 'noValido');
+            alert('Error al registrar el edificio:', error.message);
         }
     });
 });
