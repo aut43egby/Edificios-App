@@ -15,42 +15,34 @@
 
 <body>
 
-    <!-- Navbar con tema oscuro -->
-    <nav class="navbar navbar-dark bg-dark fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">EDIFICIOS UTN</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="offcanvasNavbar"
-                aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <h4 class="offcanvas-title text-light" id="offcanvasNavbarLabel">Opciones</h4>
-                    <button type="button" class="btn-close bg-light" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
+    <nav class="fixed-top">
+        <div>
+            <h1 href="#">EDIFICIOS</h1>
+            <div tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div>
+                    <h4 id="offcanvasNavbarLabel">Opciones</h4>
                 </div>
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <div>
+                    <ul>
                         <li class="nav-item">
-                            <a class="nav-link botoneSinSesion" aria-current="page" data-bs-toggle="modal"
+                            <a class="botoneSinSesion" aria-current="page" data-bs-toggle="modal"
                                 data-bs-target="#InicioSesion">INICIAR SESION</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link botoneSinSesion" data-bs-toggle="modal"
+                            <a class="botoneSinSesion" data-bs-toggle="modal"
                                 data-bs-target="#Registrarse">REGISTRARSE</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link botonesConSesion" id="Mostrar-Edificios" href="SubirEdificio.html">SUBIR
+                            <a class="botonesConSesion" id="Mostrar-Manualidades" href="SubirEdificio.html">REGISTRAR
                                 UN
                                 EDIFICIO</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link botonesConSesion" id="Mostrar-Edificios" href="index.html">VER
+                            <a class="botonesConSesion" id="Mostrar-Manualidades" href="index.html">VER
                                 EDIFICIOS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link botonesConSesion" id="CerrarSesion">CERRAR SESIÓN</a>
+                            <a class="botonesConSesion" id="CerrarSesion">CERRAR SESIÓN</a>
                         </li>
                     </ul>
                 </div>
@@ -60,11 +52,10 @@
 
     <!-- Contenido del cuerpo aquí -->
 
-    <!-- Lista de Edificios -->
-    <div class="container p-4 mt-5">
-        <div class="row">
-            <div class="col-md-6 offset-md-3 mt-5">
-                <ul class="list-group Edificios"></ul>
+    <div class="custom-container">
+        <div class="custom-row">
+            <div class="custom-col">
+                <ul class="custom-list-group Edificios"></ul>
             </div>
         </div>
     </div>

@@ -14,177 +14,180 @@
 </head>
 
 <body>
-
-    <!-- Navbar con tema oscuro -->
-    <nav class="navbar navbar-dark bg-dark fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">EDIFICIOS UTN</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="offcanvasNavbar"
-                aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <h4 class="offcanvas-title text-light" id="offcanvasNavbarLabel">Opciones</h4>
-                    <button type="button" class="btn-close bg-light" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
+    <nav class="fixed-top">
+        <div>
+            <h1 href="#">EDIFICIOS UTN</h1>
+            <div tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div>
+                    <h4 id="offcanvasNavbarLabel">Opciones</h4>
                 </div>
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <div>
+                    <ul>
                         <li class="nav-item">
-                            <a class="nav-link botoneSinSesion" aria-current="page" data-bs-toggle="modal"
+                            <a class="botoneSinSesion" aria-current="page" data-bs-toggle="modal"
                                 data-bs-target="#InicioSesion">INICIAR SESION</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link botoneSinSesion" data-bs-toggle="modal"
+                            <a class="botoneSinSesion" data-bs-toggle="modal"
                                 data-bs-target="#Registrarse">REGISTRARSE</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link botonesConSesion" id="Mostrar-Edificios" href="SubirEdificio.html">SUBIR UN
+                            <a class="botonesConSesion" id="Mostrar-Manualidades" href="SubirEdificio.html">REGISTRAR UN
                                 EDIFICIO</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link botonesConSesion" id="Mostrar-Edificios" href="index.html">VER EDIFICIOS</a>
+                            <a class="botonesConSesion" id="Mostrar-Manualidades" href="index.html">VER
+                                EDIFICIOS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link botonesConSesion" id="CerrarSesion">CERRAR SESIÓN</a>
+                            <a class="botonesConSesion" id="CerrarSesion">CERRAR SESIÓN</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
-    </nav>
+        
 
-    <!-- Contenido del cuerpo aquí -->
+        <!-- Contenido del cuerpo aquí -->
 
-    <!-- Formulario de Edificio -->
-    <div class="container p-4 mt-5">
-        <div class="row">
-            <form id="Formulario-Edificio" class="col-md-6 mx-auto">
-                <div class="mb-3">
-                    <label for="Nombre-Edificio" class="form-label">Nombre del Edificio:</label>
-                    <input type="text" class="form-control" id="Nombre-Edificio" placeholder="Nombre del Edificio">
-                </div>
-                <div class="mb-3">
-                    <label for="Ubicacion-Edificio" class="form-label">Ubicación:</label>
-                    <input type="text" class="form-control" id="Ubicacion-Edificio"
-                        placeholder="Ubicación del Edificio">
-                </div>
-                <div class="mb-3">
-                    <label for="FechaConstruccion-Edificio" class="form-label">Fecha de Construcción:</label>
-                    <input type="date" class="form-control" id="FechaConstruccion-Edificio">
-                </div>
-                <div class="mb-3">
-                    <label for="NumeroPisos-Edificio" class="form-label">Número de Pisos:</label>
-                    <input type="number" class="form-control" id="NumeroPisos-Edificio"
-                        placeholder="Número de Pisos del Edificio">
-                </div>
-                <div class="mb-3">
-                    <label for="Proposito-Edificio" class="form-label">Propósito/Función:</label>
-                    <textarea class="form-control" id="Proposito-Edificio"
-                        placeholder="Propósito o Función del Edificio"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary" id="Guardar-Edificio">Guardar Edificio</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Lista de Edificios -->
-    <div class="container p-4 mt-5">
-        <div class="row">
-            <div class="col-md-6 offset-md-3 mt-5">
-                <ul class="list-group Edificios"></ul>
+        <!-- Formulario de Edificio -->
+        <div id="manualidad-form-container" class="custom-container">
+            <div class="custom-row">
+                <form id="Formulario-Edificio" class="custom-col">
+                    <div class="contenedor-datos">
+                        <label for="Nombre-Edificio" class="custom-form-label">Nombre del Edificio:</label>
+                        <input type="text" class="custom-form-control" id="Nombre-Edificio"
+                            placeholder="Nombre del Edificio">
+                    </div>
+                    <div class="contenedor-datos">
+                        <label for="Ubicacion-Edificio" class="custom-form-label">Ubicación:</label>
+                        <input type="text" class="custom-form-control" id="Ubicacion-Edificio"
+                            placeholder="Ubicación del Edificio">
+                    </div>
+                    <div class="contenedor-datos">
+                        <label for="FechaConstruccion-Edificio" class="custom-form-label">Fecha de Construcción:</label>
+                        <input type="date" class="custom-form-control" id="FechaConstruccion-Edificio">
+                    </div>
+                    <div class="contenedor-datos">
+                        <label for="NumeroPisos-Edificio" class="custom-form-label">Número de Pisos:</label>
+                        <input type="number" class="custom-form-control" id="NumeroPisos-Edificio"
+                            placeholder="Número de Pisos del Edificio">
+                    </div>
+                    <div class="contenedor-datos">
+                        <label for="Proposito-Edificio" class="custom-form-label">Propósito/Función:</label>
+                        <textarea class="custom-form-control" id="Proposito-Edificio"
+                            placeholder="Propósito o Función del Edificio"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="Guardar-Edificio">Guardar Edificio</button>
+                </form>
             </div>
         </div>
-    </div>
 
-    <!-- MODAL DE ACTUALIZACIÓN -->
-    <div class="modal fade" id="ActualizarEdificio" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content bg-dark text-light">
-                <div class="modal-header bg-dark">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Actualizar Edificio</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="Formulario-ActualizarEdificio">
-                        <div class="mb-3">
-                            <label for="Actualizar-Nombre-Edificio" class="form-label">Nuevo Nombre del Edificio:</label>
-                            <input type="text" class="form-control" id="Actualizar-Nombre-Edificio"
-                                placeholder="Nuevo Nombre del Edificio">
-                        </div>
-                        <div class="mb-3">
-                            <label for="Actualizar-Ubicacion-Edificio" class="form-label">Nueva Ubicación:</label>
-                            <input type="text" class="form-control" id="Actualizar-Ubicacion-Edificio"
-                                placeholder="Nueva Ubicación del Edificio">
-                        </div>
-                        <div class="mb-3">
-                            <label for="Actualizar-FechaConstruccion-Edificio" class="form-label">Nueva Fecha de Construcción:</label>
-                            <input type="date" class="form-control" id="Actualizar-FechaConstruccion-Edificio">
-                        </div>
-                        <div class="mb-3">
-                            <label for="Actualizar-NumeroPisos-Edificio" class="form-label">Nuevo Número de Pisos:</label>
-                            <input type="number" class="form-control" id="Actualizar-NumeroPisos-Edificio"
-                                placeholder="Nuevo Número de Pisos del Edificio">
-                        </div>
-                        <div class="mb-3">
-                            <label for="Actualizar-Proposito-Edificio" class="form-label">Nuevo Propósito/Función:</label>
-                            <textarea class="form-control" id="Actualizar-Proposito-Edificio"
-                                placeholder="Nuevo Propósito o Función del Edificio"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-warning" id="Actualizar-Edificio">Actualizar Edificio</button>
-                    </form>
+        <!-- Lista de Edificios -->
+        <div class="container p-4 mt-5">
+            <div class="row">
+                <div class="col-md-6 offset-md-3 mt-5">
+                    <ul class="list-group Edificios"></ul>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- MODAL DE INICIO DE SESIÓN -->
-    <div class="modal fade" id="InicioSesion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content bg-dark">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">INICIAR SESIÓN</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="Formulario-InicioSesion">
-                        <!-- Agrega aquí los campos para iniciar sesión -->
-                        <button type="submit" class="btn btn-outline-light w-100 mb-2">INICIAR SESIÓN</button>
-                    </form>
-                    <button type="submit" id="Google-Auth" class="btn btn-outline-warning w-100 mb-2">INICIAR SESIÓN CON
-                        GOOGLE</button>
-                    <button type="submit" id="Facebook-Auth" class="btn btn-outline-info w-100 mb-2">INICIAR SESIÓN CON
-                        FACEBOOK</button>
+        <!-- MODAL DE ACTUALIZACIÓN -->
+        <div class="modal fade" id="ActualizarEdificio" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content bg-dark text-light">
+                    <div class="modal-header bg-dark">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Actualizar Edificio</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="Formulario-ActualizarEdificio">
+                            <div class="contenedor-datos">
+                                <label for="Actualizar-Nombre-Edificio" class="custom-form-label">Nuevo Nombre del
+                                    Edificio:</label>
+                                <input type="text" class="custom-form-control" id="Actualizar-Nombre-Edificio"
+                                    placeholder="Nuevo Nombre del Edificio">
+                            </div>
+                            <div class="contenedor-datos">
+                                <label for="Actualizar-Ubicacion-Edificio" class="custom-form-label">Nueva
+                                    Ubicación:</label>
+                                <input type="text" class="custom-form-control" id="Actualizar-Ubicacion-Edificio"
+                                    placeholder="Nueva Ubicación del Edificio">
+                            </div>
+                            <div class="contenedor-datos">
+                                <label for="Actualizar-FechaConstruccion-Edificio" class="custom-form-label">Nueva Fecha
+                                    de
+                                    Construcción:</label>
+                                <input type="date" class="custom-form-control"
+                                    id="Actualizar-FechaConstruccion-Edificio">
+                            </div>
+                            <div class="contenedor-datos">
+                                <label for="Actualizar-NumeroPisos-Edificio" class="custom-form-label">Nuevo Número de
+                                    Pisos:</label>
+                                <input type="number" class="custom-form-control" id="Actualizar-NumeroPisos-Edificio"
+                                    placeholder="Nuevo Número de Pisos del Edificio">
+                            </div>
+                            <div class="contenedor-datos">
+                                <label for="Actualizar-Proposito-Edificio" class="custom-form-label">Nuevo
+                                    Propósito/Función:</label>
+                                <textarea class="custom-form-control" id="Actualizar-Proposito-Edificio"
+                                    placeholder="Nuevo Propósito o Función del Edificio"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-warning" id="Actualizar-Edificio">Actualizar
+                                Edificio</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- MODAL DE REGISTRO -->
-    <div class="modal fade" id="Registrarse" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content bg-dark">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">REGISTRATE</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="Formulario-Registro">
-                        <!-- Agrega aquí los campos para registrarse -->
-                        <button type="submit" class="btn btn-outline-light w-100 mb-4">REGISTRARSE</button>
-                    </form>
+        <!-- MODAL DE INICIO DE SESIÓN -->
+        <div class="modal fade" id="InicioSesion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content bg-dark">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">INICIAR SESIÓN</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="Formulario-InicioSesion">
+                            <!-- Agrega aquí los campos para iniciar sesión -->
+                            <button type="submit" class="btn btn-outline-light w-100 mb-2">INICIAR SESIÓN</button>
+                        </form>
+                        <button type="submit" id="Google-Auth" class="btn btn-outline-warning w-100 mb-2">INICIAR SESIÓN
+                            CON
+                            GOOGLE</button>
+                        <button type="submit" id="Facebook-Auth" class="btn btn-outline-info w-100 mb-2">INICIAR SESIÓN
+                            CON
+                            FACEBOOK</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Scripts de Bootstrap y otros scripts necesarios -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Scripts de Toastify y otros necesarios -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <!-- MODAL DE REGISTRO -->
+        <div class="modal fade" id="Registrarse" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content bg-dark">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">REGISTRATE</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="Formulario-Registro">
+                            <!-- Agrega aquí los campos para registrarse -->
+                            <button type="submit" class="btn btn-outline-light w-100 mb-4">REGISTRARSE</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scripts de Bootstrap y otros scripts necesarios -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Scripts de Toastify y otros necesarios -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 
 </html>

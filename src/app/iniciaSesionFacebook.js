@@ -12,7 +12,7 @@ FacebookAuthButton.addEventListener('click', async () => {
             MODAL = bootstrap.Modal.getInstance(MODALINICIASESION);
         MODAL.hide()
 
-        alert(`Bienvenido ${CREDENCIALES.user.displayName}`)
+        alert(`Bienvenido ${CREDENCIALES.user.email}`)
     } catch (error) {
         console.log(error.code);
     }
